@@ -11,26 +11,31 @@ function MovieGallery({ title, query }) {
       .then((data) => {
         if (data.Search) {
           setMovies(data.Search);
+        } else {
+          setMovies([]); // nessun risultato
         }
       })
       .catch((error) => console.log("Errore nel fetch:", error));
   }, [query]);
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2 style={{ color: "white" }}>{title}</h2>
+    <>
+      <h4>{title}</h4>
 
-      <div style={{ display: "flex", gap: "10px", overflowX: "scroll" }}>
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4">
         {movies.map((m) => (
-          <img
-            key={m.imdbID}
-            src={m.Poster}
-            alt={m.Title}
-            style={{ width: "150px", borderRadius: "4px" }}
-          />
+          <div className="col mb-2 text-center px-1" key={m.imdbID}>
+            {m.Poster && m.Poster !== "N/A" && (
+              <img
+                className="img-fluid movie-poster"
+                src={m.Poster}
+                alt={m.Title}
+              />
+            )}
+          </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }
 

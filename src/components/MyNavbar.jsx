@@ -1,3 +1,4 @@
+import logo from "../assets/img/img/logo.png";
 function MyNavbar() {
   return (
     <nav
@@ -8,7 +9,9 @@ function MyNavbar() {
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           <img
-            src="/assets/logo.png"
+            img
+            src={logo}
+            alt="Netflix Logo"
             style={{ width: "100px", height: "55px" }}
           />
         </a>
