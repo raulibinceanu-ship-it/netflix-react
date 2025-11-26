@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function MovieGallery({ title, query }) {
   const [movies, setMovies] = useState([]);
@@ -26,11 +27,13 @@ function MovieGallery({ title, query }) {
         {movies.map((m) => (
           <div className="col mb-2 text-center px-1" key={m.imdbID}>
             {m.Poster && m.Poster !== "N/A" && (
-              <img
-                className="img-fluid movie-poster"
-                src={m.Poster}
-                alt={m.Title}
-              />
+              <Link to={`/movie-details/${m.imdbID}`}>
+                <img
+                  className="img-fluid movie-poster"
+                  src={m.Poster}
+                  alt={m.Title}
+                />
+              </Link>
             )}
           </div>
         ))}
