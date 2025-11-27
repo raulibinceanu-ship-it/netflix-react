@@ -5,7 +5,7 @@ import MovieGallery from "./components/MovieGallery";
 import TVShows from "./components/TVShows";
 import MovieDetails from "./components/MovieDetails";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
